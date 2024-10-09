@@ -1,12 +1,19 @@
 package tarea2a;
-import com.opencsv.CSVReader;
-import java.io.FileReader;
+
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        
         String archivoCSV = "C:\\Users\\2DAM\\Documents\\GitHub\\2DAM\\Acceso a datos\\Tareas\\tarea\\src\\main\\java\\tarea2a\\alumnos.csv";
-
+        String linea="";
+        /* 
         try (CSVReader reader = new CSVReader(new FileReader(archivoCSV))) {
             String[] linea;
 
@@ -20,6 +27,22 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        */
+        
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(archivoCSV)))) {
+            while ((linea = br.readLine()) != null) {
+                // Separar los valores por el delimitador (en este caso una coma)
+                String[] datos = linea.split(",");
+
+                // Aquí puedes acceder a los valores de cada fila
+                for (String dato : datos) {
+                    System.out.print(dato + " ");
+                }
+                System.out.println();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
