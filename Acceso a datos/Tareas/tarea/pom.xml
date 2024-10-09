@@ -38,4 +38,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>tarea2a</name>
 </project>
