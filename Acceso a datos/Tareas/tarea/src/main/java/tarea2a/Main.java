@@ -13,7 +13,7 @@ public class Main {
         
         String archivoCSV = "C:\\Users\\2DAM\\Documents\\GitHub\\2DAM\\Acceso a datos\\Tareas\\tarea\\src\\main\\java\\tarea2a\\alumnos.csv";
         String linea="";
-        String alumno="";
+        String nombre="";
         String ciclo="";
         int edad=0;
         float notaMedia=0;
@@ -42,17 +42,24 @@ public class Main {
                 // Separar los valores por el delimitador (en este caso una coma)
                 String[] datos = linea.split(",");
 
-               // Convertir los datos en un objeto Alumno. Funciona como un array las posiciones
-              
-
+               // Convertir los datos en un objeto Alumno. Funciona como un array las posiciones de cada linea del csv
+                nombre=datos[0]+" "+datos[1]+" "+datos[2];
+                edad=Integer.parseInt(datos[3]);//parseamos el string de la edad para tratarlo como un int
+                ciclo=datos[4];
+                notaMedia=Integer.parseInt(datos[5]);//parseamos el string de la nota media
                 // Crear un nuevo objeto Alumno y agregarlo a la lista
-                alumno = new Alumno();
+                alumno = new Alumno(nombre,edad,ciclo,notaMedia);
                 alumnos.add(alumno);
             }
-                System.out.println();
+            }catch (FileNotFoundException e) {
+                System.out.println("Archivo no encontrado: " + e.getMessage());
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo: " + e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println("Error al convertir los datos numéricos: " + e.getMessage());
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+
         }
     }
-}
+
+
