@@ -46,7 +46,7 @@ public class Main {
                 nombre=datos[0]+" "+datos[1]+" "+datos[2];
                 edad=Integer.parseInt(datos[3]);//parseamos el string de la edad para tratarlo como un int
                 ciclo=datos[4];
-                notaMedia=Integer.parseInt(datos[5]);//parseamos el string de la nota media
+                notaMedia=Float.parseFloat(datos[5]);//parseamos el string de la nota media
                 // Crear un nuevo objeto Alumno y agregarlo a la lista
                 alumno = new Alumno(nombre,edad,ciclo,notaMedia);
                 alumnos.add(alumno);
