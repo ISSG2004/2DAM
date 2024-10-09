@@ -13,6 +13,13 @@ public class Main {
         
         String archivoCSV = "C:\\Users\\2DAM\\Documents\\GitHub\\2DAM\\Acceso a datos\\Tareas\\tarea\\src\\main\\java\\tarea2a\\alumnos.csv";
         String linea="";
+        String alumno="";
+        String ciclo="";
+        int edad=0;
+        float notaMedia=0;
+        
+        Alumno alumno;
+        ArrayList <Alumno>alumnos= new ArrayList<>();
         /* 
         try (CSVReader reader = new CSVReader(new FileReader(archivoCSV))) {
             String[] linea;
@@ -35,10 +42,13 @@ public class Main {
                 // Separar los valores por el delimitador (en este caso una coma)
                 String[] datos = linea.split(",");
 
-                // Aquí puedes acceder a los valores de cada fila
-                for (String dato : datos) {
-                    System.out.print(dato + " ");
-                }
+               // Convertir los datos en un objeto Alumno. Funciona como un array las posiciones
+              
+
+                // Crear un nuevo objeto Alumno y agregarlo a la lista
+                alumno = new Alumno();
+                alumnos.add(alumno);
+            }
                 System.out.println();
             }
         } catch (FileNotFoundException e) {
