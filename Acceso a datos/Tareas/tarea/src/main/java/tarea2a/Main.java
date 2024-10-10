@@ -20,33 +20,17 @@ public class Main {
         
         Alumno alumno;
         ArrayList <Alumno>alumnos= new ArrayList<>();
-        /* 
-        try (CSVReader reader = new CSVReader(new FileReader(archivoCSV))) {
-            String[] linea;
 
-            // Lee el archivo línea por línea
-            while ((linea = reader.readNext()) != null) {
-                // Cada línea es un arreglo de cadenas
-                for (String campo : linea) {
-                    System.out.print(campo + " ");
-                }
-                System.out.println(); // Salto de línea después de cada fila
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
-        
         try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(archivoCSV)))) {
             while ((linea = br.readLine()) != null) {
                 // Separar los valores por el delimitador (en este caso una coma)
                 String[] datos = linea.split(",");
 
                // Convertir los datos en un objeto Alumno. Funciona como un array las posiciones de cada linea del csv
-                nombre=datos[0]+" "+datos[1]+" "+datos[2];
-                edad=Integer.parseInt(datos[3]);//parseamos el string de la edad para tratarlo como un int
-                ciclo=datos[4];
-                notaMedia=Float.parseFloat(datos[5]);//parseamos el string de la nota media
+                nombre=datos[0].trim();
+                edad=Integer.parseInt(datos[1].trim());//parseamos el string de la edad para tratarlo como un int
+                ciclo=datos[2].trim();
+                notaMedia=Float.parseFloat(datos[3].trim());//parseamos el string de la nota media
                 // Crear un nuevo objeto Alumno y agregarlo a la lista
                 alumno = new Alumno(nombre,edad,ciclo,notaMedia);
                 alumnos.add(alumno);
