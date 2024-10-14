@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -35,6 +36,13 @@ public class Main {
                 alumno = new Alumno(nombre,edad,ciclo,notaMedia);
                 alumnos.add(alumno);
             }
+            //con un foreach recorremos y mostramos los valores del arraylist
+            
+            for (Alumno alumnoLista : alumnos) {
+                System.out.println(alumnoLista);
+            }
+            System.out.println("Estos son los datos del alumno con más nota:");
+            System.out.println(mostrarAlto(alumnos));
             }catch (FileNotFoundException e) {
                 System.out.println("Archivo no encontrado: " + e.getMessage());
             } catch (IOException e) {
@@ -42,8 +50,20 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println("Error al convertir los datos numéricos: " + e.getMessage());
             }
-
+               
+            
+        }
+    //metodo para mostrar el alumno con la nota más alta
+        public static Alumno mostrarAlto(ArrayList <Alumno> alumnos){
+            Alumno alumnoNota = new Alumno("",0,"",0);
+            for(Alumno alumnoLista:alumnos){
+                if(alumnoNota.getNotaMedia()<alumnoLista.getNotaMedia()){
+                    alumnoNota=alumnoLista;
+                }
+            }
+            return alumnoNota;
         }
     }
+    
 
 
