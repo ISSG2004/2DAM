@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Inscripción</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a la hoja de estilos -->
+</head>
+<body>
+    <div class="container">
+        <h1>HOJA DE INSCRIPCIÓN EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h1>
+        <form>
+            <fieldset class="personal-data">
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required>
+
+                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+
+                <label for="provincia">Provincia:</label>
+                <select type="text" id="provincia" name="provincia" required>
+                    <option value="Almeria">Almería</option>
+                    <option value="Granada">Granada</option>
+                    <option value="Malaga">Málaga</option>
+                    <option value="Jaen">Jaén</option>
+                    <option value="Cadiz">Cádiz</option>
+                    <option value="Sevilla">Sevilla</option>
+                    <option value="Cordoba">Córdoba</option>
+                    <option value="Huelva">Huelva</option>
+                </select>
+                <label for="codigo-postal">Código Postal:</label>
+                <input type="text" id="codigo-postal" name="codigo-postal" required>
+            </fieldset>
+
+            <fieldset class="access-type">
+                <legend>Forma de Acceso</legend>
+                
+            </fieldset>
+
+            <fieldset class="additional-documents">
+                <legend>Documentación Adjunta</legend>
+                <label for="documento-dni">Fotocopia DNI:</label>
+                <input type="file" id="documento-dni" name="documento-dni" required>
+
+                <label for="certificado">Certificado Académico:</label>
+                <input type="file" id="certificado" name="certificado" required>
+
+                <label for="otro-documento">Otro Documento:</label>
+                <input type="file" id="otro-documento" name="otro-documento">
+            </fieldset>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
