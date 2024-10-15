@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    height: 60px;
+}
+.recreo {
+    text-align: center;
+    font-weight: bold;
+}
+td[colspan] {
+    text-align: center;
+}
