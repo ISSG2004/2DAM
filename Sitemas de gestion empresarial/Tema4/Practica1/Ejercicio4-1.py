@@ -4,12 +4,12 @@ import os #la clase para limpiarla pantalla
 diccionario={}#diccionario
 valorUsuario=0#aqui almacenamos los valores que introduce el usuario
 valorAcabar=""#esta variable es o para confirmar fin de una opción o para conf la eliminacion del diccionario
-
+contador=1 #contador para controlar las claves 
 def introducirValores():#metodo para agregar valores al diccionario
+    global contador
     nombreNuevo=input("Introduce un nombre al diccionario")
-    contador=1 #contador para controlar las claves 
-    diccionario["Valor " + str(contador)] = nombreNuevo #asignamos el valor introducido a la clave con el valor incrementado
-    contador=contador+1 #incrementamos contador
+    diccionario["Valor " + str(contador)] = nombreNuevo  # Usa contador como parte de la clave
+    contador += 1  # Incrementa el contador
     print("Valor introducido correctamente") 
     global valorAcabar
     valorAcabar = input("Pulse cualquier tecla para continuar.....")
