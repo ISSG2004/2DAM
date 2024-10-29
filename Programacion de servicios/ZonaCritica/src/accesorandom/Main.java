@@ -1,54 +1,46 @@
 package accesorandom;
 import java.io.*;
-import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        File archivo = new  File("Programacion de servicios\\practica\\src\\main\\resources\\Archivo.txt");
-        try {//creacion del archivo
+        File archivo = new File("src\\accesorandom\\Archivo.txt");
+        try {
+            // Creación del archivo si no existe
             if (!archivo.exists()) {
                 archivo.createNewFile();
-                //si no existe escribimos en el archivo
-                try {
-                    FileWriter escritor = new FileWriter(archivo);
-                    escritor.write("0");
-                    escritor.close();
-                } catch (Exception e) {
-                    
-                    System.out.println("No se puede escribir contenido en el archivo");
+                
+                // Escribir valor inicial en binario
+                try (RandomAccessFile raf = new RandomAccessFile(archivo, "rwd")) {
+                    raf.writeInt(0); // Escribe un 0 en formato binario
                 }
-                System.out.println("Archivo creado");
-            }else{
+                System.out.println("Archivo creado con valor inicial 0");
+            } else {
                 System.out.println("Archivo existente");
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Error al crear el archivo: " + e.getMessage());
         }
-        
-        try {//acceso al archivo
+
+        try {
+            // Acceso al archivo con bloqueo
             RandomAccessFile raf = new RandomAccessFile(archivo, "rwd");
-            //no se que hacer con bloqueo, preguntar mañana
-            FileLock bloqueo=raf.getChannel().lock();
-            /* 
-            String valorFichero= raf.readLine();
-            Integer valorConvertido= Integer.parseInt(valorFichero);
-            valorConvertido++;
-            raf.seek(0);
-            String valorMod=valorConvertido.toString();
-            raf.writeUTF(valorMod);
-            */
-            int valor=raf.readInt();
-            valor++;
-            raf.seek(0);
-            raf.writeInt(valor);
-            raf.close();
-            bloqueo.relase();
+            FileLock bloqueo = raf.getChannel().lock();
+
+            int valor = raf.readInt(); // Leer el valor binario del archivo
+            System.out.println("El valor que hay en el fichero es "+valor);
+            valor++; // Incrementar el valor
+            raf.seek(0); // Volver al inicio del archivo
+            raf.writeInt(valor); // Escribir el nuevo valor en binario
+            
+            bloqueo.release(); // Liberar el bloqueo
+            raf.close(); // Cerrar el archivo
+            
+            System.out.println("Valor incrementado a: " + valor);
         } catch (Exception e) {
-            System.out.println("No se puede acceder al fichero");
+            System.out.println("No se puede acceder al fichero: " + e.getMessage());
         }
     }
 }
-
