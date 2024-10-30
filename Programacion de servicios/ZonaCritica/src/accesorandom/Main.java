@@ -18,7 +18,7 @@ public class Main {
                 }
                 System.out.println("Archivo creado con valor inicial 0");
             } else {
-                System.out.println("Archivo existente");
+                System.out.println("Archivo existente , su valor se asignará a 0 para que el programa cumpla su cometido");
             }
         } catch (Exception e) {
             System.out.println("Error al crear el archivo: " + e.getMessage());
