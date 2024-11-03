@@ -4,12 +4,17 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
-public class PanelPrincipal extends JPanel{
+public class PanelPrincipal extends JPanel {
     PanelBotones panelBtns;
     PanelActividades panelActs;
-    public PanelPrincipal(){
+    PanelCabecera panelCabecera;
+    public PanelPrincipal() {
         this.setLayout(new BorderLayout());
-        this.add(panelBtns = new PanelBotones(), BorderLayout.WEST);
-        this.add(panelActs = new PanelActividades(), BorderLayout.CENTER);
+        panelActs = new PanelActividades(); // Crear primero PanelActividades
+        panelBtns = new PanelBotones(panelActs.getPanelEj1(),panelActs.getPanelEj2(),panelActs.getPanelEj3(),panelActs.getPanelEj4(),panelActs.getPanelEj5()); // Pasar PanelEj1 a PanelBotones
+        panelCabecera = new PanelCabecera();
+        this.add(panelCabecera , BorderLayout.NORTH);
+        this.add(panelBtns, BorderLayout.WEST);
+        this.add(panelActs, BorderLayout.CENTER);
     }
 }
