@@ -1,20 +1,18 @@
-package p01;
+package parte1;
 
 import javax.swing.JFrame;
-
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 public class Ventana extends JFrame{
-    PanelBotones panelBtns;
+    PanelPrincipal mainPanel;
     Dimension dimensionesPantalla = Toolkit.getDefaultToolkit().getScreenSize();
     public Ventana(){
         super("Practica01_Compendio");
-        this.setLayout(new BorderLayout());//Modificar y poner un gridBagLayout que se adapte a lo que necesitamos
+        mainPanel= new PanelPrincipal();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.add(panelBtns = new PanelBotones() , BorderLayout.WEST);
         this.setSize((int)dimensionesPantalla.getWidth(),(int)dimensionesPantalla.getHeight());
+        this.add(mainPanel);
         this.setVisible(true);
     }
 }
