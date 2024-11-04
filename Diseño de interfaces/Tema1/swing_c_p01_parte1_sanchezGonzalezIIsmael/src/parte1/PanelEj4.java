@@ -20,6 +20,7 @@ public class PanelEj4 extends JPanel{
     private boolean visibilidad=false;
     public PanelEj4(){
         seekBar=new JSlider(1,45);
+        
         seekBar.setPaintTicks(true);//mostrar las barras de abajo
         seekBar.setPaintLabels(true);//para que se muestren las barras
         seekBar.setMajorTickSpacing(11);//separacion entre las barras que hay debajo del JSLider
@@ -27,7 +28,7 @@ public class PanelEj4 extends JPanel{
             panelTxt.setFont(new Font("Arial", Font.BOLD, seekBar.getValue()));
         });
         panelTxt=new JLabel("En un lugar de la Mancha, de cuyo nombre ...");
-        
+        panelTxt.setFont(new Font("Arial", Font.BOLD, seekBar.getValue()));
         cajaTxt.add(panelTxt);
         cajaTxt.add(Box.createHorizontalGlue());
         cajaSeek.add(Box.createHorizontalGlue());

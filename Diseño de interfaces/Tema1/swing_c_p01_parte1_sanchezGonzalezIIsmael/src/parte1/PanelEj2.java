@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class PanelEj2 extends JPanel{
     private JComboBox selectorFuente;
     private JLabel panelTxt=new JLabel("En un lugar de la Mancha, de cuyo nombre...");
-    private String[] fuentesTxt={"-","Arial","Impact","Times New Roman"};
+    private String[] fuentesTxt={"-","Arial","Georgia","Times New Roman"};
     private Box cajaTxt= Box.createHorizontalBox();
     private boolean visibilidad=false;
     public PanelEj2(){
@@ -33,10 +33,10 @@ public class PanelEj2 extends JPanel{
                 case "Arial":
                     panelTxt.setFont(new Font("Arial", Font.BOLD, 24));
                     break;
-                case "Calibri":
-                    panelTxt.setFont(new Font("Impact", Font.BOLD, 24));
+                case "Georgia":
+                    panelTxt.setFont(new Font("Georgia", Font.BOLD, 24));
                     break;
-                case "Comic Sans":
+                case "Times New Roman":
                     panelTxt.setFont(new Font("Times New Roman", Font.BOLD, 24));
                     break;
                 default:
