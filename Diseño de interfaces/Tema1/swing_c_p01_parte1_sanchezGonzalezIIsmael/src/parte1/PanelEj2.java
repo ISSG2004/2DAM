@@ -25,7 +25,7 @@ public class PanelEj2 extends JPanel{
         panelTxt.setFont(new Font("Courier New", Font.BOLD, 24));//fijamos estas especificaciones por defecto para la fuente de txt
         cajaTxt.add(panelTxt);
         cajaTxt.add(Box.createHorizontalGlue());
-        selectorFuente.setPreferredSize(new Dimension(0,20));
+        //selectorFuente.setPreferredSize(new Dimension(0,20));
         selectorFuente.setMaximumSize(new Dimension(4000, 25));
         selectorFuente.addActionListener(e->{//Evento para cambiar la fuente en funcion del elemento seleccionado
             String opcionSeleccionada=selectorFuente.getSelectedItem().toString();
