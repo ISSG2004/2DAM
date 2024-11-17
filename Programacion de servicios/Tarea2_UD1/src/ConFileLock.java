@@ -1,11 +1,12 @@
 import java.io.File;
-import java.io.FileWriter;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 
-public class BloqueoEscritura {
+public class ConFileLock {
     public static void zonaBloq(){
-        File archivo = new File("src\\Archivo.txt");
+        String listaEscribir[]={"a","b","c","d","e","f"};
+        int numAleatorio = (int) (Math.random() * listaEscribir.length);
+        File archivo = new File("src\\Archivo1.txt");
         try {
             // Creación del archivo si no existe
             if (!archivo.exists()) 
@@ -19,19 +20,16 @@ public class BloqueoEscritura {
             // Acceso al archivo con bloqueo
             RandomAccessFile raf = new RandomAccessFile(archivo, "rwd");
             FileLock bloqueo = raf.getChannel().lock();
-            /* 
-            int valor = raf.readInt(); // Leer el valor binario del archivo
-            valor++; // Incrementar el valor
-            raf.seek(0); // Volver al inicio del archivo
-            raf.writeInt(valor); // Escribir el nuevo valor en binario
-            */
-            raf.writeUTF("Ramón apruébame :)");
+            raf.seek(raf.length());
+            raf.writeUTF("Practica 4.2 de procesos " +listaEscribir[numAleatorio]);
             bloqueo.release(); // Liberar el bloqueo
             raf.close(); // Cerrar el archivo
             
-            //System.out.println("Valor incrementado a: " + valor);
         } catch (Exception e) {
-            System.out.println("No se puede acceder al fichero: " + e.getMessage());
+            System.out.println("No se puede acceder al fichero");
         }
+    }
+    public static void main(String[] args) {
+        zonaBloq();
     }
 }
