@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Main {
-public static void main(String[] args) {
+    public static void main(String[] args) {
         // Crear lista de coches con datos aleatorios
         List<Coche> coches = new ArrayList<>();
         String[] tamanos = {"pequeño", "mediano", "grande"};
