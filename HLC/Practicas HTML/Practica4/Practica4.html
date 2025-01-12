@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoja de Inscripción</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace a la hoja de estilos -->
 </head>
+
 <body>
     <div class="container">
-        <h1>HOJA DE INSCRIPCIÓN EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h1>
         <form>
+            <h1>HOJA DE INSCRIPCIÓN EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h1>
             <fieldset class="personal-data">
                 <legend>Datos Personales</legend>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
-
-                <label for="dni">DNI:</label>
-                <input type="text" id="dni" name="dni" required>
-
-                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
-
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+    
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+    
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+    
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                </div>
+                <br>
                 <label for="telefono">Teléfono:</label>
                 <input type="tel" id="telefono" name="telefono" required>
 
@@ -50,7 +54,7 @@
 
             <fieldset class="access-type">
                 <legend>Forma de Acceso</legend>
-                
+
             </fieldset>
 
             <fieldset class="additional-documents">
@@ -69,4 +73,5 @@
         </form>
     </div>
 </body>
+
 </html>
